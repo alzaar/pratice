@@ -1,0 +1,22 @@
+<div>
+  <form #searchForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="searchvalue">Search</label>
+        <input type="text"
+          name="searchValue"
+          class="form-control"
+          id="searchValue"
+          required
+          [(ngModel)]="searchValue"
+          #query="ngModel"
+
+        >
+      <div [hidden]="query.valid || query.pristine"
+        class="alert alert-danger"
+        >
+        Term required
+      </div>
+    </div>
+    <button type="submit" [disabled]="!searchForm.form.valid" class="btn btn-success">Search</button>
+  </form>
+</div>
